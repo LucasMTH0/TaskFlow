@@ -1,1 +1,93 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --blue-100: #A0DEFF;
+    --blue-200: #92C7CF;
+    --blue-300: #4CC9FE;
+    --blue-400: #37AFE1;
+    --blue-500: #40A2E3;
+    --blue-600: #1D5D9B;
+    --blue-700: #003285;
+    --blue-800: #071952;
+
+    --gray-100: #EEEEEE;
+    --gray-200: #EEEDEB;
+    --gray-300: #939185;
+    --gray-500: #686D76;
+    --gray-600: #454545;
+    --gray-700: #343131;
+    --gray-800: #1A1A1D;
+    --gray-900: #181818;
+
+    --red-200: #DD5353;
+    --red-300: #C63D2F;
+    --red-400: #982B1C;
+    --red-500: #C40C0C;
+    --red-600: #9A031E;
+    --red-700: #800000;
+
+    --green-100: #CCE0AC;
+    --green-200: #B1D690;
+    --green-300: #A8DF8E;
+    --green-400: #508D69;
+    --green-500: #859F3D;
+    --green-700: #557C56;
+    --green-800: #31511E;
+
+
+}
+html, body { height: 100%; }
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "PT Sans Narrow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+
+    background: var(--gray-900);
+    color: var(--gray-200);
+ }
+
+
+ .form-group-container{
+    display: flex;
+    flex-direction: column;
+
+    height: 80vh;
+    max-width: 70rem;
+    width: 100%;
+
+    margin: 6rem auto;
+    gap: 1rem;
+}
+
+.form-input {
+    border-radius: 8px;
+    border: 1px solid var(--gray-700);
+    background: transparent;
+    padding: 0.75rem;
+}
+
+.font-control-bold {
+    color: var(--gray-100);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.form-button-submit{
+    border-radius: 8px;
+    background: var(--green-400);
+    border: none;
+    padding: .875rem;
+    cursor: pointer;
+    width: 12.5rem;
+    margin: 0 auto;
+}
+
+.form-button-submit:disabled,
+.form-button-submit[disabled]{
+  cursor: not-allowed;
+  background: var(--green-800);
+  color: var(--gray-900)
+}

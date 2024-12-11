@@ -1,0 +1,65 @@
+@if(isUserLogged){
+  <div class="container" cdkDropListGroup>
+    <div class="tasks-column-container">
+      <h1 class="column-title">Pendentes</h1>
+      <div
+        cdkDropList
+        [cdkDropListData]="tasksPending"
+        class="wrapper"
+        (cdkDropListDropped)="dropTaskCard($event)">
+        @for (task of tasksPending; track task) {
+          <app-card-task 
+            [task]="task" 
+            cdkDrag 
+            (click)="openEditTask(task)"
+        ></app-card-task>
+        }
+      </div>
+    </div>
+  
+    <div class="tasks-column-container">
+      <h1 class="column-title">Concluído</h1>
+      <div
+        cdkDropList
+        class="wrapper"
+        [cdkDropListData]="tasksComplete"
+        (cdkDropListDropped)="dropTaskCard($event)">
+        @for (task of tasksComplete; track task) {
+          <app-card-task 
+            cdkDrag 
+            [task]="task" 
+            (click)="openEditTask(task)"
+          ></app-card-task>
+        }
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container" cdkDropListGroup>
+    <app-tasks-column 
+      cdkDropList 
+      [tasks]="tasksPending" 
+      idColumn="taskPending"  
+      title="Tarefas pendentes"
+    ></app-tasks-column>
+
+    <app-tasks-column 
+      cdkDropList
+      [tasks]="tasksComplete" 
+      idColumn="taskComplete" 
+      title="Tarefas Concluidas"
+    ></app-tasks-column>
+-->
+    <button 
+      mat-icon-button 
+      class="button-add-new-task" 
+      (click)="openRegisterTask()"
+    >
+      <mat-icon>add-circle</mat-icon>
+    </button>
+  <!-- </div>  -->
+} @else {
+  <h1 class="login-notice-title">
+    Para acessar as tarefas é preciso realizar o login. 
+    <a (click)="router.navigateByUrl('/auth/login')">Acessar</a>
+  </h1>
+}

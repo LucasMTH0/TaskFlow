@@ -1,0 +1,102 @@
+.container {
+    padding: 0 1rem;
+  }
+  
+  .title {
+    color: var(--gray-100);
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .button-options{
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .button {
+    border: none;
+    border-radius: 9px;
+    padding: 1rem;
+    cursor: pointer;
+  
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--gray-100);
+  }
+
+  .container-done-check{
+    display: flex;
+    align-items: center;
+  }
+  .title-done-check{
+    font-size: 1.25rem;
+  }
+
+  
+  .cancel {
+    background: var(--gray-300);
+  }
+  .delete{
+    background: var(--red-400);
+  }
+  .submit {
+    background: var(--green-400);
+  }
+
+  .submit:disabled,
+  .submit[disabled]{
+    cursor: not-allowed;
+    background: var(--green-800);
+    color: var(--gray-900)
+}
+  
+.picker{
+  color: var(--gray-900);
+}
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+
+  .input-text {
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: var(--gray-900);
+    flex-grow: 1;
+    color: var(--gray-100);
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+::ng-deep .mat-mdc-focus-indicator{
+  color: var(--gray-900)
+}
+
+::ng-deep .mat-datepicker-toggle-default-icon{
+  color: var(--gray-100);
+  font-size: 1.375rem;
+}
+
+::ng-deep .mat-mdc-button-ripple{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gray-900);
+  border-radius: 3px !important;
+}
+
+.container-date-picker{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,53 @@
+<section class="container" >
+    <form [formGroup]="formTask" class="form-container" (submit)="formSubmit()" >
+      <h1 class="title">{{ variant === 'register' ? "Criar tarefa" : "Editar tarefa"}}</h1>
+      <input 
+        type="text" 
+        class="input-text"
+        placeholder="Nome da tarefa"
+        formControlName="title"
+      />
+
+      <input 
+        type="text" 
+        class="input-text"
+        placeholder="Descrição"
+        formControlName="description"
+        aria-multiline="true"
+      />
+
+
+      <div class="container-date-picker">
+        <input class="input-text" placeholder="Prazo" [matDatepicker]="picker" formControlName="dateLimit">
+
+        <mat-datepicker-toggle matIconSuffix [for]="picker" class="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+
+      @if(variant == "edit") {
+        <div class="container-done-check">
+          <h2 class="title-done-check">Feito:</h2>
+          <mat-checkbox class="example-margin" formControlName="done">Checked</mat-checkbox>
+        </div>
+      }
+  
+
+      <div class="button-options">
+        @if(variant === "edit"){
+          <button class="button delete" mat-dialog-close (click)="deleteTask()"> Excluir</button>
+        }
+        <button class="button cancel" mat-dialog-close> Cancelar</button>
+
+        <button 
+          mat-dialog-close
+          class="button submit" 
+          [disabled]="formTask.invalid"
+          type="submit"> 
+          {{ variant === "register" ? "Cadastrar" : "Editar"}} 
+        </button>
+      </div>
+  
+    </form>
+  
+  </section>
+  

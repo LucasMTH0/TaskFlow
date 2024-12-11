@@ -1,0 +1,75 @@
+<form 
+    class="form-group-container"
+    [formGroup]="formUser" 
+    (ngSubmit)="submitUserRegister()"
+>
+    <input
+        type="text" 
+        class="form-input font-control-bold"
+        placeholder="Nome"
+        formControlName="name"
+    />
+    @if(formUser.get('name')?.invalid && (formUser.get('name')?.dirty || formUser.get('name')?.touched)){
+        <p class="form-error">Nome obrigatório</p>
+    }
+    <input 
+        type="email"
+        class="form-input font-control-bold"
+        placeholder="E-mail"
+        formControlName="email"
+    />
+    @if(formUser.get('email')?.errors && (formUser.get('email')?.dirty || formUser.get('email')?.touched)){
+        @if(formUser.get('email')?.errors?.['required']){
+            <p class="form-error">E-mail obrigatório</p>
+        }
+        @if(formUser.get('email')?.errors?.['email']){
+            <p class="form-error">E-mail inválido</p>
+        }
+    }
+    <input 
+        type="password"
+        class="form-input font-control-bold"
+        placeholder="Senha"
+        formControlName="password"
+    />
+    @if(formUser.get('password')?.errors && (formUser.get('password')?.dirty || formUser.get('password')?.touched)){
+        @if(formUser.get('password')?.errors?.['required']){
+            <p class="form-error">Senha obrigatória</p>
+        }
+        @if(formUser.get('password')?.errors?.['minlength']){
+            <p class="form-error">Senha pequena, obrigatório a senha ter no mínimo 
+                {{ formUser.get('password')?.errors?.['minlength'].requiredLength }} caractéres</p>
+        }
+    }
+    <input 
+        type="password"
+        class="form-input font-control-bold"
+        placeholder="Repetir senha"
+        formControlName="repeatPassword"
+    />
+    @if( formUser.get('repeatPassword')?.errors && 
+        (formUser.get('repeatPassword')?.dirty || formUser.get('repeatPassword')?.touched)
+    ){
+        @if(formUser.get('repeatPassword')?.errors?.['required']){
+            <p class="form-error">Senha obrigatória</p>
+        }
+        @if(formUser.get('repeatPassword')?.errors?.['minlength']){
+            <p class="form-error">
+                Senha pequena, obrigatório a senha ter no mínimo 
+                {{ formUser.get('repeatPassword')?.errors?.['minlength'].requiredLength }} caractéres
+            </p>
+        }
+    }
+    @if(formUser.errors?.['match_error'] && (formUser.get('repeatPassword')?.dirty || formUser.get('repeatPassword')?.touched)){
+        <p class="form-error">
+            {{ formUser.errors?.['match_error'] }}
+        </p>
+    }
+    <button 
+        [disabled]="formUser.invalid"
+        class="form-button-submit font-control-bold" 
+        type="submit"
+    >Cadastrar</button>
+</form>
+
+<!--  -->

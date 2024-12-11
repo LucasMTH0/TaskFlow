@@ -1,0 +1,6 @@
+<app-form-task 
+    variant="edit" 
+    [task]="task"
+    (formTaskEmitter)="editTask($event)"
+    (deleteTaskEmitter)="deleteTask()"
+></app-form-task>

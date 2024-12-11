@@ -1,0 +1,16 @@
+<nav class="container">
+    <div class="white-text home-button" (click)="router.navigateByUrl('/')">Home</div>
+    <ul class="options">
+        @if(userLogged){
+            @if(userLogged.name){
+                <h1 class="white-text welcome-title">Olá, {{ userLogged.name }}</h1>
+            }
+            <!-- <li class="white-text" (click)="router.navigateByUrl('/profile')">Perfil</li> -->
+            <li class="white-text" (click)="logout()">Sair</li>
+        } @else {
+            <li class="white-text" (click)="router.navigateByUrl('/auth/register')">Cadastro</li>
+            <li class="white-text" (click)="router.navigateByUrl('/auth/login')">Login</li>
+        }
+    </ul>
+</nav>
+

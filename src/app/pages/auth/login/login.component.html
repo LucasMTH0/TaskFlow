@@ -1,0 +1,24 @@
+<form 
+    class="form-group-container"
+    [formGroup]="formUser" 
+    (ngSubmit)="submitLogin()"
+>
+    <h1 class="login-title">Acessar conta</h1>
+    <input 
+        type="email"
+        class="form-input font-control-bold"
+        placeholder="E-mail"
+        formControlName="email"
+    />
+    <input 
+        type="password"
+        class="form-input font-control-bold"
+        placeholder="Senha"
+        formControlName="password"
+    />
+    <button 
+        [disabled]="formUser.invalid" 
+        class="form-button-submit font-control-bold" 
+        type="submit"
+    >Cadastrar</button>
+</form>

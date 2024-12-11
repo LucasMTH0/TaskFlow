@@ -1,0 +1,26 @@
+.tasks-column-container{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+
+    background: var(--gray-800);
+    border: 1px solid var(--gray-800);
+    border-radius: 8px;
+
+    padding: .625rem;
+    height: 80vh;
+    width: 18.75rem;
+}
+
+.task-column-title{
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
